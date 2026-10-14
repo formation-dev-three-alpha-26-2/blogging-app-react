@@ -34,8 +34,7 @@ Installez vos dépendances en utilisant npm install, vérifiez vos scripts dans 
 L'application contient les composants suivants :
 
  * [ 1 ] - Composant App
-Le composant principal class component avec état qui affiche l'ensemble de l'application.
-
+Le composant principal de l'application, chargé d'organiser les composants et de configurer les routes.
 
 
 
@@ -44,38 +43,94 @@ Un composant function qui est censé parcourir une collection de données de blo
 
 ![alt text](./client/public/allposts.png)
 
+* [ 3 ] - PostDetails (Détail d'un article)
 
- * [ 3 ] - OnePost (UnArticle)
+Un composant function qui reçoit les données d'un article via les props et affiche son titre, son auteur et un aperçu de son contenu.
+
+ * [ 4 ] - OnePost (UnArticle)
 OnePost est un composant function simple qui affiche un article
 
 
 
- * [ 4 ] - CreatePost (CréerUnArticle)
+ * [ 5 ] - CreatePost (CréerUnArticle)
 Un composant function qui devrait avoir des champs permettant à l'utilisateur de publier des blogs
 
 ![alt text](./client/public/CreatePost.PNG)
 
- * [ 5 ] - Search (Recherche)
+ * [ 6 ] - Search (Recherche)
 Un composant function qui contient des champs pour permettre à l'utilisateur de rechercher un blog
 ![alt text](./client/public/Search.PNG)
 
 
  ### Exigences de Base
 
-
-* Vous avez du code de démarrage pour react router, refactorisez votre application et ajouter votre routes .
-
-
 * Utilisez vos données factices src/data/exampleBlogData.js pour afficher votre AllPosts, continuez à utiliser les props pour afficher un composant PostDetails pour chaque objet d'article des données factices.
+ - Importez les données fournies.
+
+ - Parcourez la collection d'articles avec map().
+
+ - Affichez un composant PostDetails pour chaque article.
+
+ - Transmettez les données de chaque article avec les props.
+
+ - Ajoutez une propriété key unique à chaque élément généré.
 
 * Faites en sorte que votre application affiche OnePost lorsque l'utilisateur clique sur le titre du blog
+ 
+ - Utilisez React Router pour configurer la route permettant d'afficher un article.
+
+ - Utilisez un identifiant pour retrouver l'article sélectionné.
+
+ - Transmettez les données correspondantes au composant OnePost.
+
+ - Affichez le titre, l'auteur et le contenu complet de l'article.
+
+* Vous disposez d'un code de démarrage pour React Router. Complétez la configuration des routes de votre application.
+
+Les routes à mettre en place sont :
+
+- /posts : afficher tous les articles.
+
+- /posts/:id : afficher le détail d'un article.
+
+- /createPost : afficher le formulaire de création d'un article.
 
 
-* Vérifiez votre mécanisme de rendu conditionnel et mettez-le à jour pour qu'il puisse afficher un composant CreatePost lorsqu'un utilisateur clique sur le bouton de création d'article.
+* Le formulaire doit contenir un champ pour le titre et un champ pour le contenu.
+
+ - Utilisez useState pour gérer les valeurs des champs.
+
+ - Utilisez value et onChange pour contrôler les champs du formulaire.
+
+ - Le titre doit contenir au moins 3 caractères.
+
+ - Le contenu doit contenir au moins 20 caractères.
+
+ - Gérez la soumission du formulaire avec onSubmit.
+
+ - Empêchez le rechargement de la page lors de la soumission.
+
+ - Créez un nouvel objet représentant l'article.
+
+ - Ajoutez le nouvel article à la liste en mettant à jour l'état React.
+
+ - Videz les champs du formulaire après une publication réussie.
 
 
 ### Avancé
 
-* Implémentez une fonctionnalité de Recherche en temps réel dans votre application de blog
+* Implémentez une fonctionnalité de recherche en temps réel dans votre application de blog.
+    
+  - Utilisez useState pour récupérer le texte saisi dans le champ de recherche.
+
+  - Mettez à jour la recherche à chaque modification du champ.
+
+  - Filtrez les articles en fonction de leur titre avec filter().
+
+  -  Ignorez les différences entre majuscules et minuscules.
+
+  - Affichez uniquement les articles correspondant à la recherche.
+
+  - Affichez tous les articles lorsque le champ de recherche est vide.
 
 
